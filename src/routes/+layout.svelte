@@ -1,6 +1,7 @@
 <script lang="ts">
 	import './layout.css';
 	import favicon from '$lib/assets/favicon.svg';
+	import { resolve } from '$app/paths';
 
 	let { children } = $props();
 </script>
@@ -11,7 +12,7 @@
 	<header>
 		<span class="flex items-center justify-between p-4">
 			<h1 class="h1">
-				<a href="/"> Flashy </a>
+				<a href={resolve('/')}> Flashy </a>
 			</h1>
 			<h2 class="h2">v{__APP_VERSION__}</h2>
 		</span>
