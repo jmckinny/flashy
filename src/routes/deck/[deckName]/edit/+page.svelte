@@ -4,10 +4,7 @@
 	import type { PageProps } from './$types';
 	import { updateDeck } from '$lib/deck';
 	let { data }: PageProps = $props();
-	let cards = $state<{ question: string; answer: string }[]>([]);
-	$effect(() => {
-		cards = data.cards;
-	});
+	let cards = $derived.by(() => [...data.cards]);
 	let deckName = $derived(data.deckName);
 	const toaster = createToaster();
 
@@ -29,11 +26,7 @@
 	}
 
 	function addCard() {
-		cards.push({
-			question: '',
-			answer: ''
-		});
-		cards = cards;
+		cards = [...cards, { question: '', answer: '' }];
 	}
 
 	function deleteCard(removeIndex: number) {
@@ -51,7 +44,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			{#each cards as card, index}
+			{#each cards as card, index (index)}
 				<tr>
 					<td>
 						<input class="input" type="text" bind:value={card.question} />

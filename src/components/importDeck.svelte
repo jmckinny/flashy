@@ -2,6 +2,7 @@
 	import { FileIcon } from '@lucide/svelte';
 	import { FileUpload } from '@skeletonlabs/skeleton-svelte';
 	import { addNewDeck, loadDecksInfo } from '$lib/deck';
+	// eslint-disable-next-line no-useless-assignment
 	let { decks = $bindable() } = $props();
 
 	const LINE_DELIM = '|';

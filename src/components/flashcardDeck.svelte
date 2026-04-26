@@ -22,7 +22,7 @@
 	}
 
 	// Fisher–Yates shuffle: https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle
-	function shuffle(array: any[]) {
+	function shuffle<T>(array: T[]) {
 		const a = [...array];
 		let currentIndex = a.length;
 		while (currentIndex != 0) {
