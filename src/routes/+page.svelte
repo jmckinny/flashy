@@ -6,6 +6,7 @@
 	import NewDeck from '../components/newDeck.svelte';
 	import ImportDeck from '../components/importDeck.svelte';
 	import DeleteDeck from '../components/deleteDeck.svelte';
+	import ExportDeck from '../components/exportDeck.svelte';
 	let { data }: PageProps = $props();
 	let decks = $derived(data.decks);
 </script>
@@ -33,6 +34,7 @@
 							<Pencil />
 						</button>
 						<DeleteDeck deckName={deck.name} />
+						<ExportDeck deckName={deck.name} />
 					</div>
 				</li>
 			{/each}

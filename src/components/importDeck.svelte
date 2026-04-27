@@ -1,12 +1,9 @@
 <script lang="ts">
 	import { FileIcon } from '@lucide/svelte';
 	import { FileUpload } from '@skeletonlabs/skeleton-svelte';
-	import { addNewDeck, loadDecksInfo } from '$lib/deck';
+	import { addNewDeck, loadDecksInfo, LINE_DELIM, ROW_DELIM } from '$lib/deck';
 	// eslint-disable-next-line no-useless-assignment
 	let { decks = $bindable() } = $props();
-
-	const LINE_DELIM = '|';
-	const ROW_DELIM = '\t';
 
 	async function onFileAccept(details: FileAcceptDetails): Promise<void> {
 		for (let file of details.files) {

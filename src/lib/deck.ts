@@ -1,3 +1,6 @@
+export const LINE_DELIM = '|';
+export const ROW_DELIM = '\t';
+
 export interface Card {
 	question: string;
 	answer: string;
@@ -63,4 +66,13 @@ export function deleteDeck(deckName: string) {
 	decksInfo = decksInfo.filter((d) => d.name !== deckName);
 	localStorage.removeItem(deckName);
 	localStorage.setItem('decks', JSON.stringify(decksInfo));
+}
+
+export function deckToCSV(
+	deckName: string,
+	rowDelim: string = ROW_DELIM,
+	lineDelim: string = LINE_DELIM
+): string {
+	const deck = loadDeck(deckName);
+	return deck.map((card) => `${card.question}${rowDelim}${card.answer}`).join(lineDelim);
 }
