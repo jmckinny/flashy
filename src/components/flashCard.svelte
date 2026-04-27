@@ -40,6 +40,7 @@
 		justify-content: center;
 		padding: 1.25rem;
 		backface-visibility: hidden;
+		transform: rotateX(0deg);
 		border: 1px solid;
 		border-radius: 12px;
 		background: inherit;
